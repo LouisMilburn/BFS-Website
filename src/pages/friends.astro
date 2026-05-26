@@ -1,37 +1,94 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro';
+
+const committee = [
+  { name: 'Robert Cragg',     role: 'Chairperson',  note: 'Friend of School' },
+  { name: 'Louise Whalley',   role: 'Treasurer',    note: 'Head of Development' },
+  { name: 'Eppie Nicholls',   role: 'Secretary',    note: 'School Administrator' },
+  { name: 'Zoe Thompson',     role: 'Committee Member', note: 'Head of Development' },
+  { name: 'Mechel Gwinneth',  role: 'Committee Member', note: 'Parent / Member Organiser' },
+  { name: 'Claire Walsh',     role: 'Committee Member', note: 'Parent' },
+];
 ---
 <PageLayout title="Friends of Bright Futures School">
-  <div class="prose-bfs">
-    <p>
-      The Friends of Bright Futures School (FBFS) is a parent and staff association that works to support the educational and social experience of our pupils.
-    </p>
+  <!-- Hero logo + intro -->
+  <div class="flex flex-col sm:flex-row items-center gap-8 mb-10">
+    <img src="/images/fbfs-logo.png" alt="Friends of Bright Futures School" class="w-36 h-36 object-contain flex-shrink-0" />
+    <div>
+      <p class="text-lg text-gray-700 leading-relaxed">
+        Friends of Bright Futures School (FBFS) is a local charity dedicated to supporting the exceptional work of Bright Futures School — a specialist independent school for children with autism.
+      </p>
+      <p class="text-gray-600 mt-3">
+        We support young people with autism by raising funds for <strong>sensory equipment, day trips, and enrichment activities</strong> that go beyond what the school can provide through its core budget.
+      </p>
+    </div>
+  </div>
 
-    <h2>Our Aims</h2>
-    <p>
-      The aim of the Association is to advance the education of pupils in the school, in particular by:
-    </p>
+  <!-- Our Aims -->
+  <h2 class="section-heading">Our Aims</h2>
+  <div class="prose-bfs mb-8">
+    <p>The aim of the Association is to advance the education of pupils in the school, in particular by:</p>
     <ul>
-      <li>Developing effective relationships between the staff, parents and others associated with the school.</li>
-      <li>Engaging in activities which support the school and advance the education of the pupils.</li>
-      <li>Providing and assisting in the provision of facilities for education at the school, not normally provided by the Local Authority.</li>
+      <li>Developing effective relationships between staff, parents, and others associated with the school.</li>
+      <li>Engaging in activities that support the school and advance the education of pupils.</li>
+      <li>Providing facilities for education at the school that are not normally provided by the Local Authority.</li>
     </ul>
+  </div>
 
-    <h2>Membership</h2>
+  <!-- Membership -->
+  <h2 class="section-heading">Membership</h2>
+  <div class="prose-bfs mb-8">
     <p>
-      Membership of FBFS is open to:
+      Membership of FBFS is open to parents, guardians, or carers of any pupil currently attending the school, and to teaching and non-teaching staff.
     </p>
-    <ul>
-      <li>Parents, guardians or carers of any pupil currently attending the school, and</li>
-      <li>Teaching and non-teaching staff.</li>
-    </ul>
     <p>
-      FBFS is a charity. Our registration number is <strong>1153766</strong>. We have our own bank account and our main purpose is to raise funds to augment the social and educational experience of pupils.
+      FBFS is a registered charity in England and Wales. <strong>Charity registration number: 1153766.</strong> We have our own bank account and our main purpose is to raise funds to augment the social and educational experience of pupils.
     </p>
+    <p>
+      To become a member, email us at <a href="mailto:hello@friendsofbrightfutures.co.uk">hello@friendsofbrightfutures.co.uk</a>.
+    </p>
+  </div>
 
-    <h2>How to Become a Friend</h2>
+  <!-- Committee -->
+  <h2 class="section-heading">Our Committee</h2>
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+    {committee.map(m => (
+      <div class="bg-gray-50 rounded-lg p-4 border-l-4 border-brand-cyan">
+        <p class="font-bold text-brand-navy">{m.name}</p>
+        <p class="text-brand-cyan text-sm font-semibold">{m.role}</p>
+        <p class="text-gray-500 text-xs mt-0.5">{m.note}</p>
+      </div>
+    ))}
+  </div>
+
+  <!-- Events -->
+  <h2 class="section-heading">Events &amp; News</h2>
+  <div class="prose-bfs mb-10">
     <p>
-      If you would like to become a member of Friends of Bright Futures School, please email us at <a href="mailto:office@brightfuturesschool.co.uk">office@brightfuturesschool.co.uk</a>.
+      FBFS runs fundraising events and community activities throughout the year — raffles, fairs, social evenings and more.
+      For the latest events and updates, visit the <a href="https://friendsofbrightfutures.co.uk" target="_blank" rel="noopener">Friends of Bright Futures website</a> or follow us on Facebook.
     </p>
+    <p>
+      <a href="https://www.facebook.com/BrightFuturesFriends/" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 text-brand-cyan hover:text-brand-navy font-semibold transition-colors">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M24 12.073C24 5.40466 18.6274 0 12 0S0 5.40466 0 12.073C0 18.1 4.38823 23.0943 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.6117 23.0943 24 18.1 24 12.073z"/>
+        </svg>
+        Follow us on Facebook
+      </a>
+    </p>
+  </div>
+
+  <!-- Donate -->
+  <div class="bg-brand-cyan/10 border-2 border-brand-cyan rounded-xl p-8 text-center">
+    <h2 class="text-2xl font-bold text-brand-navy mb-3">Support Our Pupils</h2>
+    <p class="text-gray-600 mb-6 max-w-xl mx-auto">
+      Every donation helps us provide sensory equipment, exciting day trips, and enrichment experiences that make a real difference to the children at Bright Futures School.
+    </p>
+    <a href="https://www.justgiving.com/page/brightfuturesschool" target="_blank" rel="noopener"
+       class="inline-block bg-brand-green text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-brand-navy transition-colors">
+      Donate via JustGiving
+    </a>
+    <p class="text-xs text-gray-400 mt-4">Registered charity 1153766 · England and Wales</p>
   </div>
 </PageLayout>
