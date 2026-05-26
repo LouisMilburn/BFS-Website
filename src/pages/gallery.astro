@@ -27,20 +27,69 @@ const photos = [
   { src: '/images/gallery/pupils-on-sensory-equipment.jpg', alt: 'Pupils on sensory equipment' },
   { src: '/images/gallery/swim-session.jpg', alt: 'Swimming session' },
   { src: '/images/gallery/lucy-and-breeze.jpg', alt: 'Lucy and Breeze' },
+  { src: '/images/gallery/nojus-on-equipment.jpg', alt: 'Nojus on equipment' },
+  { src: '/images/gallery/jayden-on-equipment.jpg', alt: 'Jayden on equipment' },
 ];
 ---
 <PageLayout title="Gallery" showContact={false}>
-  <p class="text-gray-600 mb-8">A selection of photos of life at Bright Futures School — our facilities, pupils, and activities.</p>
+  <p class="text-gray-600 mb-8">A selection of photos of life at Bright Futures School — our facilities, pupils, and activities. Click any photo to view it full size.</p>
   <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-    {photos.map(p => (
-      <a href={p.src} target="_blank" rel="noopener" class="group overflow-hidden rounded-lg">
+    {photos.map((p, i) => (
+      <button
+        class="group overflow-hidden rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-cyan"
+        data-lightbox={i}
+        aria-label={`View photo: ${p.alt}`}
+      >
         <img
           src={p.src}
           alt={p.alt}
           class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
           loading="lazy"
         />
-      </a>
+      </button>
     ))}
   </div>
+
+  <!-- Lightbox dialog -->
+  <dialog id="lightbox" class="fixed inset-0 z-50 bg-black/90 w-full max-w-full h-full m-0 p-0 flex items-center justify-center backdrop:bg-black/90">
+    <button id="lb-close" aria-label="Close" class="absolute top-4 right-4 text-white text-4xl leading-none hover:text-brand-cyan">&times;</button>
+    <button id="lb-prev" aria-label="Previous" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl leading-none hover:text-brand-cyan">&#8249;</button>
+    <button id="lb-next" aria-label="Next" class="absolute right-16 top-1/2 -translate-y-1/2 text-white text-4xl leading-none hover:text-brand-cyan">&#8250;</button>
+    <img id="lb-img" src="" alt="" class="max-h-[90vh] max-w-[90vw] object-contain rounded" />
+    <p id="lb-caption" class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black/50 px-3 py-1 rounded"></p>
+  </dialog>
 </PageLayout>
+
+<script define:vars={{ photos }}>
+  const dialog  = document.getElementById('lightbox');
+  const img     = document.getElementById('lb-img');
+  const caption = document.getElementById('lb-caption');
+  let current   = 0;
+
+  function show(index) {
+    current = (index + photos.length) % photos.length;
+    img.src        = photos[current].src;
+    img.alt        = photos[current].alt;
+    caption.textContent = photos[current].alt;
+  }
+
+  document.querySelectorAll('[data-lightbox]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      show(parseInt(btn.dataset.lightbox));
+      dialog.showModal();
+    });
+  });
+
+  document.getElementById('lb-close').addEventListener('click', () => dialog.close());
+  document.getElementById('lb-prev').addEventListener('click', () => show(current - 1));
+  document.getElementById('lb-next').addEventListener('click', () => show(current + 1));
+
+  dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
+
+  document.addEventListener('keydown', e => {
+    if (!dialog.open) return;
+    if (e.key === 'Escape')    dialog.close();
+    if (e.key === 'ArrowLeft') show(current - 1);
+    if (e.key === 'ArrowRight') show(current + 1);
+  });
+</script>
