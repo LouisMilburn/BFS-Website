@@ -97,6 +97,10 @@ const isActive = (path: string) => currentPath === path || currentPath.startsWit
   .nav-link.active {
     @apply text-brand-cyan border-b-2 border-brand-cyan;
   }
+  /* Hide the active underline when the dropdown is open so it doesn't double up with the dropdown's top border */
+  .group:hover .nav-link.active {
+    @apply border-b-0;
+  }
   .dropdown {
     @apply absolute left-0 top-full hidden group-hover:block bg-white shadow-lg border-t-4 border-brand-cyan min-w-48 z-50 rounded-b;
   }
