@@ -2,42 +2,45 @@
 import PageLayout from '@/layouts/PageLayout.astro';
 
 const photos = [
-  { src: '/images/gallery/bright-futures-15.jpg', alt: 'School grounds' },
-  { src: '/images/gallery/bright-futures-04.jpg', alt: 'School exterior' },
-  { src: '/images/gallery/henry-at-dovestones.jpg', alt: 'Henry at Dovestones' },
-  { src: '/images/gallery/bright-futures-14.jpg', alt: 'Outdoor space' },
-  { src: '/images/gallery/pupils-group.jpg', alt: 'Pupils' },
-  { src: '/images/gallery/bfs-staff-team.jpg', alt: 'Staff team' },
-  { src: '/images/gallery/matthew-and-harry.jpg', alt: 'Pupils at screen' },
-  { src: '/images/gallery/bright-futures-03.jpg', alt: 'Classroom' },
-  { src: '/images/gallery/bright-futures-13.jpg', alt: 'School building' },
-  { src: '/images/gallery/bright-futures-12.jpg', alt: 'Corridor' },
-  { src: '/images/gallery/bright-futures-11.jpg', alt: 'Learning space' },
-  { src: '/images/gallery/bright-futures-10.jpg', alt: 'Reception area' },
-  { src: '/images/gallery/flynn.jpg', alt: 'Flynn' },
-  { src: '/images/gallery/bright-futures-09.jpg', alt: 'Sensory room' },
-  { src: '/images/gallery/sahil-and-henry-in-the-wind.jpg', alt: 'Sahil and Henry outdoors' },
-  { src: '/images/gallery/bright-futures-07.jpg', alt: 'Activity space' },
-  { src: '/images/gallery/bright-futures-06.jpg', alt: 'Pupil space' },
-  { src: '/images/gallery/bright-futures-05.jpg', alt: 'Classroom' },
-  { src: '/images/gallery/saoirse-makes-gingerbread.jpg', alt: 'Saoirse making gingerbread' },
-  { src: '/images/gallery/sahil-by-posts-at-dovestones.jpg', alt: 'Sahil at Dovestones' },
-  { src: '/images/gallery/sahil-and-henry-in-woods.jpg', alt: 'Sahil and Henry in woods' },
-  { src: '/images/gallery/matthew-going-to-college.jpg', alt: 'Matthew going to college' },
-  { src: '/images/gallery/pupils-on-sensory-equipment.jpg', alt: 'Pupils on sensory equipment' },
-  { src: '/images/gallery/swim-session.jpg', alt: 'Swimming session' },
-  { src: '/images/gallery/lucy-and-breeze.jpg', alt: 'Lucy and Breeze' },
-  { src: '/images/gallery/nojus-on-equipment.jpg', alt: 'Nojus on equipment' },
-  { src: '/images/gallery/jayden-on-equipment.jpg', alt: 'Jayden on equipment' },
+  { src: '/images/gallery/bright-futures-15.jpg',             alt: 'School grounds' },
+  { src: '/images/gallery/bright-futures-04.jpg',             alt: 'School exterior' },
+  { src: '/images/gallery/henry-at-dovestones.jpg',           alt: 'Henry at Dovestones' },
+  { src: '/images/gallery/bright-futures-14.jpg',             alt: 'Outdoor space' },
+  { src: '/images/gallery/pupils-group.jpg',                  alt: 'Pupils' },
+  { src: '/images/gallery/bfs-staff-team.jpg',                alt: 'Staff team' },
+  { src: '/images/gallery/matthew-and-harry.jpg',             alt: 'Pupils at screen' },
+  { src: '/images/gallery/bright-futures-03.jpg',             alt: 'Classroom' },
+  { src: '/images/gallery/bright-futures-13.jpg',             alt: 'School building' },
+  { src: '/images/gallery/bright-futures-12.jpg',             alt: 'Corridor' },
+  { src: '/images/gallery/bright-futures-11.jpg',             alt: 'Learning space' },
+  { src: '/images/gallery/bright-futures-10.jpg',             alt: 'Reception area' },
+  { src: '/images/gallery/flynn.jpg',                         alt: 'Flynn' },
+  { src: '/images/gallery/bright-futures-09.jpg',             alt: 'Sensory room' },
+  { src: '/images/gallery/sahil-and-henry-in-the-wind.jpg',   alt: 'Sahil and Henry outdoors' },
+  { src: '/images/gallery/bright-futures-07.jpg',             alt: 'Activity space' },
+  { src: '/images/gallery/bright-futures-06.jpg',             alt: 'Pupil space' },
+  { src: '/images/gallery/bright-futures-05.jpg',             alt: 'Classroom' },
+  { src: '/images/gallery/saoirse-makes-gingerbread.jpg',     alt: 'Saoirse making gingerbread' },
+  { src: '/images/gallery/sahil-by-posts-at-dovestones.jpg',  alt: 'Sahil at Dovestones' },
+  { src: '/images/gallery/sahil-and-henry-in-woods.jpg',      alt: 'Sahil and Henry in woods' },
+  { src: '/images/gallery/matthew-going-to-college.jpg',      alt: 'Matthew going to college' },
+  { src: '/images/gallery/pupils-on-sensory-equipment.jpg',   alt: 'Pupils on sensory equipment' },
+  { src: '/images/gallery/swim-session.jpg',                  alt: 'Swimming session' },
+  { src: '/images/gallery/lucy-and-breeze.jpg',               alt: 'Lucy and Breeze' },
+  { src: '/images/gallery/nojus-on-equipment.jpg',            alt: 'Nojus on equipment' },
+  { src: '/images/gallery/jayden-on-equipment.jpg',           alt: 'Jayden on equipment' },
 ];
 ---
 <PageLayout title="Gallery" showContact={false}>
-  <p class="text-gray-600 mb-8">A selection of photos of life at Bright Futures School — our facilities, pupils, and activities. Click any photo to view it full size.</p>
+  <p class="text-gray-600 mb-8">A selection of photos of life at Bright Futures School. Click any photo to view it full size.</p>
+
   <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
     {photos.map((p, i) => (
       <button
-        class="group overflow-hidden rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-cyan"
-        data-lightbox={i}
+        class="lb-thumb group overflow-hidden rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-cyan"
+        data-index={i}
+        data-src={p.src}
+        data-alt={p.alt}
         aria-label={`View photo: ${p.alt}`}
       >
         <img
@@ -50,49 +53,69 @@ const photos = [
     ))}
   </div>
 
-  <!-- Lightbox overlay -->
-  <div id="lightbox" hidden class="fixed inset-0 z-50 bg-black/90 flex items-center justify-center">
-    <button id="lb-close" aria-label="Close" class="absolute top-4 right-4 text-white text-4xl leading-none hover:text-brand-cyan">&times;</button>
-    <button id="lb-prev" aria-label="Previous" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl leading-none hover:text-brand-cyan">&#8249;</button>
-    <button id="lb-next" aria-label="Next" class="absolute right-16 top-1/2 -translate-y-1/2 text-white text-4xl leading-none hover:text-brand-cyan">&#8250;</button>
-    <img id="lb-img" src="" alt="" class="max-h-[90vh] max-w-[90vw] object-contain rounded" />
-    <p id="lb-caption" class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black/50 px-3 py-1 rounded"></p>
+  <!-- Lightbox — hidden via inline style so Tailwind classes don't interfere -->
+  <div id="lb-overlay" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.92);">
+    <!-- Close -->
+    <button id="lb-close" style="position:absolute; top:1rem; right:1.5rem; color:#fff; font-size:2.5rem; line-height:1; background:none; border:none; cursor:pointer;" aria-label="Close lightbox">&times;</button>
+    <!-- Prev -->
+    <button id="lb-prev" style="position:absolute; left:1rem; top:50%; transform:translateY(-50%); color:#fff; font-size:3rem; line-height:1; background:none; border:none; cursor:pointer;" aria-label="Previous photo">&#8249;</button>
+    <!-- Next -->
+    <button id="lb-next" style="position:absolute; right:1rem; top:50%; transform:translateY(-50%); color:#fff; font-size:3rem; line-height:1; background:none; border:none; cursor:pointer;" aria-label="Next photo">&#8250;</button>
+    <!-- Image centred -->
+    <div style="display:flex; align-items:center; justify-content:center; width:100%; height:100%; padding:3rem;">
+      <img id="lb-img" src="" alt="" style="max-height:85vh; max-width:90vw; object-fit:contain; border-radius:0.5rem;" />
+    </div>
+    <!-- Caption -->
+    <p id="lb-caption" style="position:absolute; bottom:1rem; left:50%; transform:translateX(-50%); color:#fff; font-size:0.85rem; background:rgba(0,0,0,0.5); padding:0.25rem 0.75rem; border-radius:9999px; white-space:nowrap;"></p>
   </div>
 </PageLayout>
 
-<script define:vars={{ photos }}>
-  const lb      = document.getElementById('lightbox');
-  const img     = document.getElementById('lb-img');
-  const caption = document.getElementById('lb-caption');
-  let current   = 0;
+<script is:inline>
+  (function () {
+    var overlay = document.getElementById('lb-overlay');
+    var lbImg   = document.getElementById('lb-img');
+    var caption = document.getElementById('lb-caption');
+    var thumbs  = Array.from(document.querySelectorAll('.lb-thumb'));
+    var current = 0;
 
-  function show(index) {
-    current = (index + photos.length) % photos.length;
-    img.src        = photos[current].src;
-    img.alt        = photos[current].alt;
-    caption.textContent = photos[current].alt;
-  }
+    function show(index) {
+      current = (index + thumbs.length) % thumbs.length;
+      var btn = thumbs[current];
+      lbImg.src       = btn.dataset.src;
+      lbImg.alt       = btn.dataset.alt;
+      caption.textContent = btn.dataset.alt;
+    }
 
-  const open  = () => { lb.hidden = false; document.body.style.overflow = 'hidden'; };
-  const close = () => { lb.hidden = true;  document.body.style.overflow = ''; };
+    function openLb(index) {
+      show(index);
+      overlay.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
 
-  document.querySelectorAll('[data-lightbox]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      show(parseInt(btn.dataset.lightbox));
-      open();
+    function closeLb() {
+      overlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    thumbs.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        openLb(parseInt(btn.dataset.index, 10));
+      });
     });
-  });
 
-  document.getElementById('lb-close').addEventListener('click', close);
-  document.getElementById('lb-prev').addEventListener('click', () => show(current - 1));
-  document.getElementById('lb-next').addEventListener('click', () => show(current + 1));
+    document.getElementById('lb-close').addEventListener('click', closeLb);
+    document.getElementById('lb-prev').addEventListener('click', function () { show(current - 1); });
+    document.getElementById('lb-next').addEventListener('click', function () { show(current + 1); });
 
-  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) closeLb();
+    });
 
-  document.addEventListener('keydown', e => {
-    if (lb.hidden) return;
-    if (e.key === 'Escape')     close();
-    if (e.key === 'ArrowLeft')  show(current - 1);
-    if (e.key === 'ArrowRight') show(current + 1);
-  });
+    document.addEventListener('keydown', function (e) {
+      if (overlay.style.display === 'none') return;
+      if (e.key === 'Escape')     closeLb();
+      if (e.key === 'ArrowLeft')  show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+  })();
 </script>
