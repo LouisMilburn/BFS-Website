@@ -1,0 +1,30 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+---
+<PageLayout title="School Holidays">
+  <div class="prose-bfs">
+    <p>School holiday dates are published in our annual calendars. You can download the current and upcoming academic year calendars below.</p>
+
+    <div class="flex flex-col sm:flex-row gap-4 my-8">
+      <a href="/documents/BFS-Calendar-2025-2026.pdf" target="_blank" rel="noopener" class="btn-primary flex items-center gap-2" download>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+        </svg>
+        BFS Calendar 2025–2026 (PDF)
+      </a>
+      <a href="/documents/BFS-Calendar-2026-2027.pdf" target="_blank" rel="noopener" class="btn-outline flex items-center gap-2" download>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+        </svg>
+        BFS Calendar 2026–2027 (PDF)
+      </a>
+    </div>
+
+    <h2>School Hours</h2>
+    <p>
+      Mon / Tue / Thu / Fri: <strong>9.15am – 2.15pm</strong><br />
+      Wednesday: <strong>10.00am – 3.00pm</strong>
+    </p>
+    <p>If you have any queries about school holiday dates, please <a href="/contact">contact the school office</a>.</p>
+  </div>
+</PageLayout>

@@ -1,0 +1,18 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import ContactBlock from '@/components/ContactBlock.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  showContact?: boolean;
+}
+const { title, description, showContact = true } = Astro.props;
+---
+<BaseLayout title={title} description={description}>
+  <div class="max-w-4xl mx-auto px-4 py-10">
+    <h1 class="text-3xl font-bold text-brand-navy mb-8 pb-4 border-b-4 border-brand-cyan">{title}</h1>
+    <slot />
+  </div>
+  {showContact && <ContactBlock />}
+</BaseLayout>

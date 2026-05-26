@@ -1,0 +1,79 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+
+const regions = [
+  {
+    name: 'Oldham',
+    services: [
+      { label: 'Early Help', url: 'https://www.oldham.gov.uk/info/200500/early_help' },
+      { label: 'Local SEND Support', url: 'https://www.oldham.gov.uk/info/200543/send' },
+      { label: 'Local SENDIASS', url: 'https://www.oldham.gov.uk/info/200543/send/2077/oldham_sendiass' },
+      { label: 'School Nurse', url: 'https://www.nhs.uk/conditions/school-nurse/' },
+      { label: 'Local Transport Support', url: 'https://www.oldham.gov.uk/info/201079/send_travel' },
+    ],
+  },
+  {
+    name: 'Tameside',
+    services: [
+      { label: 'Early Help', url: 'https://www.tameside.gov.uk/earlyhelp' },
+      { label: 'Local SEND Support', url: 'https://www.tameside.gov.uk/send' },
+      { label: 'Local SENDIASS', url: 'https://www.tameside.gov.uk/sendiass' },
+      { label: 'School Nurse', url: 'https://www.nhs.uk/conditions/school-nurse/' },
+      { label: 'Local Transport Support', url: 'https://www.tameside.gov.uk/education/transport' },
+    ],
+  },
+  {
+    name: 'Rochdale',
+    services: [
+      { label: 'Early Help', url: 'https://www.rochdale.gov.uk/early-help' },
+      { label: 'Local SEND Support', url: 'https://www.rochdale.gov.uk/send' },
+      { label: 'Local SENDIASS', url: 'https://www.rochdale.gov.uk/sendiass' },
+      { label: 'School Nurse', url: 'https://www.nhs.uk/conditions/school-nurse/' },
+      { label: 'Local Transport Support', url: 'https://www.rochdale.gov.uk/education/transport' },
+    ],
+  },
+];
+
+const national = [
+  { label: 'Channel Helpline', number: '020 7340 7264' },
+  { label: 'Extremism Helpline', number: '020 7340 7264' },
+  { label: 'Anti-Terrorist Helpline', number: '0800 789 321' },
+  { label: 'NSPCC Helpline', number: '0808 800 5000' },
+  { label: 'Operation Encompass', number: '0204 513 9990' },
+  { label: 'Forced Marriage Unit', number: '020 7008 0151' },
+];
+---
+<PageLayout title="Useful Help and Support">
+  <div class="prose-bfs">
+    <p>The following links and contact numbers provide useful help and support for families. They are organised by Local Authority area.</p>
+  </div>
+
+  <div class="mt-8 grid md:grid-cols-3 gap-6">
+    {regions.map(region => (
+      <div class="bg-gray-50 rounded-lg p-6">
+        <h2 class="text-xl font-bold text-brand-navy mb-4 pb-2 border-b-2 border-brand-cyan">{region.name}</h2>
+        <ul class="space-y-2">
+          {region.services.map(s => (
+            <li>
+              <a href={s.url} target="_blank" rel="noopener" class="text-brand-cyan hover:text-brand-navy text-sm">
+                {s.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+
+  <div class="mt-10">
+    <h2 class="section-heading">National Helplines</h2>
+    <div class="grid sm:grid-cols-2 gap-4 mt-4">
+      {national.map(n => (
+        <div class="flex justify-between items-center bg-gray-50 rounded px-4 py-3">
+          <span class="text-gray-700 text-sm font-medium">{n.label}</span>
+          <a href={`tel:${n.number.replace(/\s/g, '')}`} class="text-brand-cyan font-semibold text-sm hover:text-brand-navy">{n.number}</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</PageLayout>

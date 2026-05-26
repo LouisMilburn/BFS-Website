@@ -1,0 +1,107 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ContactBlock from '@/components/ContactBlock.astro';
+---
+<BaseLayout title="School For Children With Autism">
+  <!-- Hero -->
+  <section class="relative bg-brand-navy text-white overflow-hidden">
+    <img src="/images/hero-school.jpg" alt="Bright Futures School building" class="absolute inset-0 w-full h-full object-cover opacity-30" />
+    <div class="relative max-w-4xl mx-auto px-4 py-20 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">Bright Futures School</h1>
+      <p class="text-xl md:text-2xl text-brand-cyan font-semibold mb-6">A Special School for Children with Autism</p>
+      <p class="text-lg text-gray-200 max-w-2xl mx-auto mb-8">
+        A small, nurturing, special independent school in Greenfield offering a unique approach to autism education for children aged 5–16.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/contact" class="btn-primary">Arrange a Visit</a>
+        <a href="/admissions" class="btn-outline border-white text-white hover:bg-white hover:text-brand-navy">Admissions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Address & contact strip -->
+  <section class="bg-brand-cyan text-white py-4">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-10 text-sm font-semibold">
+      <span>📍 1 Friezland Lane, Greenfield, OL3 7EU</span>
+      <a href="tel:01457878738" class="hover:underline">📞 01457 878738</a>
+      <a href="mailto:office@brightfuturesschool.co.uk" class="hover:underline">✉️ office@brightfuturesschool.co.uk</a>
+    </div>
+  </section>
+
+  <!-- Welcome section -->
+  <section class="max-w-4xl mx-auto px-4 py-12">
+    <h2 class="section-heading text-3xl mb-6">Welcome to Bright Futures School</h2>
+    <div class="prose-bfs text-gray-700 space-y-4">
+      <p>
+        Bright Futures School is a small, nurturing, special independent school for children with autism with a low stimulus environment and a high level of 1-1 teaching by Learning Mentors that is overseen by qualified teaching staff.
+      </p>
+      <p>
+        We offer a unique approach to autism education for children aged between 5 and 16 who have a diagnosis of autism: our staff are trained to change their communication and interaction style so that it removes demands from the pupils and reduces their anxieties.
+      </p>
+      <p>
+        In February 2020, we moved into our beautiful, purpose built accommodation, provided by local company Robert Scott and Son. All pupils have their own 1-1 space.
+      </p>
+      <p>
+        We have an excellent record of turning pupils' previous negative and unsuccessful experience of school, into a positive, rewarding and promising future.
+      </p>
+    </div>
+    <a href="/about" class="btn-primary mt-6 inline-block">Find Out More</a>
+  </section>
+
+  <!-- Approach highlight -->
+  <section class="bg-gray-50 py-12">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="section-heading text-2xl mb-6">Our Approach</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow-sm p-6 border-t-4 border-brand-cyan">
+          <h3 class="font-bold text-brand-navy text-lg mb-2">Low-Stimulus Environment</h3>
+          <p class="text-gray-600 text-sm">Purposefully designed spaces that reduce sensory overload and support calm, focused learning.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm p-6 border-t-4 border-brand-green">
+          <h3 class="font-bold text-brand-navy text-lg mb-2">1-1 Teaching</h3>
+          <p class="text-gray-600 text-sm">Every pupil has their own dedicated Learning Mentor, overseen by qualified teaching staff.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm p-6 border-t-4 border-brand-navy">
+          <h3 class="font-bold text-brand-navy text-lg mb-2">Guiding & R.D.I.</h3>
+          <p class="text-gray-600 text-sm">Staff are trained in Relationship Development Intervention to reduce anxiety and build dynamic intelligence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo grid -->
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <h2 class="section-heading text-2xl mb-6">Life at Bright Futures</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <img src="/images/gallery/bright-futures-04.jpg" alt="School exterior" class="rounded-lg object-cover w-full h-40" />
+      <img src="/images/gallery/bright-futures-03.jpg" alt="Pupils at work" class="rounded-lg object-cover w-full h-40" />
+      <img src="/images/gallery/bright-futures-05.jpg" alt="Classroom" class="rounded-lg object-cover w-full h-40" />
+      <img src="/images/gallery/bright-futures-11.jpg" alt="Outdoor activities" class="rounded-lg object-cover w-full h-40" />
+    </div>
+    <a href="/gallery" class="btn-outline mt-6 inline-block">View Full Gallery</a>
+  </section>
+
+  <!-- Quick links grid -->
+  <section class="bg-brand-navy py-12">
+    <div class="max-w-5xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+      <a href="/gallery" class="bg-white/10 hover:bg-brand-cyan rounded-lg p-6 text-white transition-colors">
+        <div class="text-3xl mb-2">📷</div>
+        <div class="font-semibold">Gallery</div>
+      </a>
+      <a href="/friends" class="bg-white/10 hover:bg-brand-cyan rounded-lg p-6 text-white transition-colors">
+        <div class="text-3xl mb-2">🤝</div>
+        <div class="font-semibold">Friends of BFS</div>
+      </a>
+      <a href="/contact" class="bg-white/10 hover:bg-brand-cyan rounded-lg p-6 text-white transition-colors">
+        <div class="text-3xl mb-2">✉️</div>
+        <div class="font-semibold">Contact Us</div>
+      </a>
+      <a href="/about/overview" class="bg-white/10 hover:bg-brand-cyan rounded-lg p-6 text-white transition-colors">
+        <div class="text-3xl mb-2">📋</div>
+        <div class="font-semibold">Overview</div>
+      </a>
+    </div>
+  </section>
+
+  <ContactBlock />
+</BaseLayout>

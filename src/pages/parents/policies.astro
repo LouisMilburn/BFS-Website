@@ -1,0 +1,77 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+
+const policies = [
+  { name: 'Accessibility Plan 2024', file: 'Accessibility-Plan-2024.pdf' },
+  { name: 'Administration of Medicines 2024', file: 'Administration-of-Medicines-2024.pdf' },
+  { name: 'Admissions Policy Sept 2025', file: 'Admissions-Policy-Sept25.pdf' },
+  { name: 'Anti-Bullying Policy 2026', file: 'Anti-bullying-Policy-2026.pdf' },
+  { name: 'Appeals Policy Jan 2023', file: 'Appeals-Policy-Jan23.pdf' },
+  { name: 'Attendance Policy 2026', file: 'Attendance-Policy-2026.pdf' },
+  { name: 'Behaviour Policy Jan 2026', file: 'Behaviour-Policy-Jan26.pdf' },
+  { name: 'Behaviour Management Contract v6 (2022)', file: 'Behaviour-Management-Contract-v6.pdf' },
+  { name: 'Bereavement Policy Jan 2026', file: 'Bereavement-Policy-Jan26.pdf' },
+  { name: 'Complaints Procedure Feb 2026', file: 'Complaints-Procedure-Feb26.pdf' },
+  { name: 'Curriculum and Assessment Policy 2026', file: 'Curriculum-and-Assessment-Policy-2026.pdf' },
+  { name: 'Data Protection Policy Jul 2024', file: 'Data-Protection-Jul2024.pdf' },
+  { name: 'DBS Policy 2023', file: 'DBS-Policy-2023.pdf' },
+  { name: 'Disciplinary Policy Jan 2023', file: 'Disciplinary-Jan23.pdf' },
+  { name: 'Equal Opportunities Policy Jan 2025', file: 'Equal-Opps-Jan2025.pdf' },
+  { name: 'First Aid Policy 2025', file: 'First-Aid-2025.pdf' },
+  { name: 'Health and Safety Policy 2024', file: 'Health-and-Safety-2024.pdf' },
+  { name: 'Homework Policy 2022', file: 'Homework-2022.pdf' },
+  { name: 'Illness Policy 2023', file: 'Illness-2023.pdf' },
+  { name: 'Mobile Phone Policy 2024', file: 'Mobile-Phone-Policy-2024.pdf' },
+  { name: 'Positive Handling Policy Sept 2024', file: 'Positive-Handling-Sept2024.pdf' },
+  { name: 'Privacy Notice (Pupils) Jul 2024', file: 'Privacy-Notice-pupils-Jul2024.pdf' },
+  { name: 'Risk Assessment 2025', file: 'Risk-Assessment-2025.pdf' },
+  { name: 'Safeguarding & Child Protection Policy 2025', file: 'Safeguarding-Child-Protection-2025.pdf' },
+  { name: 'Safer Recruitment Policy 2025', file: 'Safer-Recruitment-2025.pdf' },
+  { name: 'School Taxi Policy 2023', file: 'School-Taxi-Policy-2023.pdf' },
+  { name: 'Separated Parents Policy Oct 2025', file: 'Separated-Parents-Oct25.pdf' },
+  { name: 'Snow Policy Jan 2025', file: 'Snow-Policy-Jan2025.pdf' },
+  { name: 'Student-School Agreement 2022', file: 'Student-School-Agreement-2022.pdf' },
+  { name: 'Toileting Policy Jan 2023', file: 'Toileting-Policy-Jan2023.pdf' },
+  { name: 'Visitor Policy Jan 2025', file: 'Visitor-Policy-Jan2025.pdf' },
+  { name: 'Volunteer Policy 2025', file: 'Volunteer-Policy-2025.pdf' },
+  { name: 'Whistleblowing Policy Jan 2022', file: 'Whistleblowing-Jan2022.pdf' },
+];
+
+const keyDocuments = [
+  { name: 'School Prospectus (Nov 2023)', file: 'prospectus-1123.pdf' },
+  { name: 'SEND Information Report (Jan 2025)', file: 'SEND-Information-Report-2.pdf' },
+];
+---
+<PageLayout title="School Policies">
+  <p class="text-gray-600 mb-8">All our school policies are available to download below. If you require a paper copy of any policy, please contact the school office.</p>
+
+  <h2 class="section-heading mb-4">Key Documents</h2>
+  <ul class="mb-10 space-y-2">
+    {keyDocuments.map(doc => (
+      <li>
+        <a href={`/documents/${doc.file}`} target="_blank" rel="noopener"
+           class="flex items-center gap-2 text-brand-cyan hover:text-brand-navy font-semibold">
+          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+          </svg>
+          {doc.name}
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <h2 class="section-heading mb-4">School Policies</h2>
+  <ul class="space-y-2">
+    {policies.map(p => (
+      <li>
+        <a href={`/documents/${p.file}`} target="_blank" rel="noopener"
+           class="flex items-center gap-2 text-brand-cyan hover:text-brand-navy">
+          <svg class="w-4 h-4 flex-shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+          </svg>
+          {p.name}
+        </a>
+      </li>
+    ))}
+  </ul>
+</PageLayout>

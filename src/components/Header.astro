@@ -1,0 +1,123 @@
+---
+const currentPath = Astro.url.pathname;
+const isActive = (path: string) => currentPath === path || currentPath.startsWith(path + '/');
+---
+<header class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex items-center justify-between py-3">
+      <!-- Logo -->
+      <a href="/" class="flex-shrink-0">
+        <img src="/images/logo.jpg" alt="Bright Futures School" class="h-16 w-auto" />
+      </a>
+
+      <!-- Mobile menu button -->
+      <button id="menu-toggle" aria-label="Toggle menu" class="lg:hidden p-2 text-brand-navy">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+      <!-- Nav -->
+      <nav id="main-nav" class="hidden lg:flex items-center gap-1 text-sm font-semibold">
+        <a href="/" class:list={['nav-link', { active: currentPath === '/' }]}>HOME</a>
+
+        <!-- OUR SCHOOL dropdown -->
+        <div class="relative group">
+          <button class:list={['nav-link flex items-center gap-1', { active: isActive('/about') || isActive('/admissions') || isActive('/opportunities') || isActive('/gallery') }]}>
+            OUR SCHOOL <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+          </button>
+          <div class="dropdown">
+            <a href="/about" class="dropdown-item">About Our School</a>
+            <a href="/about/history" class="dropdown-item">Our History</a>
+            <a href="/about/overview" class="dropdown-item">Overview</a>
+            <a href="/documents/prospectus-1123.pdf" class="dropdown-item" target="_blank" rel="noopener">Prospectus (PDF)</a>
+            <a href="/admissions" class="dropdown-item">Admissions</a>
+            <a href="/opportunities" class="dropdown-item">Opportunities</a>
+            <a href="/gallery" class="dropdown-item">Gallery</a>
+          </div>
+        </div>
+
+        <!-- PARENTS dropdown -->
+        <div class="relative group">
+          <button class:list={['nav-link flex items-center gap-1', { active: isActive('/parents') }]}>
+            PARENTS <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+          </button>
+          <div class="dropdown">
+            <a href="/parents/policies" class="dropdown-item">Policies</a>
+            <a href="/parents/holidays" class="dropdown-item">School Holidays</a>
+            <a href="/parents/resources" class="dropdown-item">Guiding &amp; R.D.I.</a>
+            <a href="/documents/SEND-Information-Report-2.pdf" class="dropdown-item" target="_blank" rel="noopener">SEND Information (PDF)</a>
+            <a href="/parents/help-and-support" class="dropdown-item">Useful Help &amp; Support</a>
+          </div>
+        </div>
+
+        <a href="/friends" class:list={['nav-link', { active: isActive('/friends') }]}>FRIENDS OF BFS</a>
+        <a href="/ofsted" class:list={['nav-link', { active: isActive('/ofsted') }]}>OFSTED</a>
+        <a href="/safeguarding" class:list={['nav-link', { active: isActive('/safeguarding') }]}>SAFEGUARDING</a>
+        <a href="/contact" class:list={['nav-link bg-brand-cyan text-white hover:bg-brand-navy rounded px-3 py-2', { 'bg-brand-navy': isActive('/contact') }]}>CONTACT</a>
+      </nav>
+    </div>
+
+    <!-- Mobile nav (expanded) -->
+    <nav id="mobile-nav" class="hidden lg:hidden pb-4 border-t border-gray-100 pt-2">
+      <a href="/" class="mobile-link">Home</a>
+      <div class="mobile-group">
+        <p class="mobile-group-title">Our School</p>
+        <a href="/about" class="mobile-sub-link">About Our School</a>
+        <a href="/about/history" class="mobile-sub-link">Our History</a>
+        <a href="/about/overview" class="mobile-sub-link">Overview</a>
+        <a href="/documents/prospectus-1123.pdf" class="mobile-sub-link" target="_blank" rel="noopener">Prospectus (PDF)</a>
+        <a href="/admissions" class="mobile-sub-link">Admissions</a>
+        <a href="/opportunities" class="mobile-sub-link">Opportunities</a>
+        <a href="/gallery" class="mobile-sub-link">Gallery</a>
+      </div>
+      <div class="mobile-group">
+        <p class="mobile-group-title">Parents</p>
+        <a href="/parents/policies" class="mobile-sub-link">Policies</a>
+        <a href="/parents/holidays" class="mobile-sub-link">School Holidays</a>
+        <a href="/parents/resources" class="mobile-sub-link">Guiding &amp; R.D.I.</a>
+        <a href="/documents/SEND-Information-Report-2.pdf" class="mobile-sub-link" target="_blank" rel="noopener">SEND Information (PDF)</a>
+        <a href="/parents/help-and-support" class="mobile-sub-link">Useful Help &amp; Support</a>
+      </div>
+      <a href="/friends" class="mobile-link">Friends of BFS</a>
+      <a href="/ofsted" class="mobile-link">Ofsted</a>
+      <a href="/safeguarding" class="mobile-link">Safeguarding</a>
+      <a href="/contact" class="mobile-link font-bold text-brand-cyan">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav-link {
+    @apply text-brand-navy hover:text-brand-cyan px-2 py-5 block transition-colors;
+  }
+  .nav-link.active {
+    @apply text-brand-cyan border-b-2 border-brand-cyan;
+  }
+  .dropdown {
+    @apply absolute left-0 top-full hidden group-hover:block bg-white shadow-lg border-t-4 border-brand-cyan min-w-48 z-50 rounded-b;
+  }
+  .dropdown-item {
+    @apply block px-4 py-2 text-brand-navy hover:bg-brand-cyan hover:text-white transition-colors text-sm;
+  }
+  .mobile-link {
+    @apply block px-2 py-2 text-brand-navy hover:text-brand-cyan font-semibold;
+  }
+  .mobile-group {
+    @apply mb-2;
+  }
+  .mobile-group-title {
+    @apply px-2 py-1 text-xs uppercase tracking-wider text-gray-500 font-bold mt-2;
+  }
+  .mobile-sub-link {
+    @apply block px-4 py-1.5 text-brand-navy hover:text-brand-cyan text-sm;
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  toggle?.addEventListener('click', () => {
+    mobileNav?.classList.toggle('hidden');
+  });
+</script>

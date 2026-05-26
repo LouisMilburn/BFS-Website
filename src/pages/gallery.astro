@@ -1,0 +1,46 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+
+const photos = [
+  { src: '/images/gallery/bright-futures-15.jpg', alt: 'School grounds' },
+  { src: '/images/gallery/bright-futures-04.jpg', alt: 'School exterior' },
+  { src: '/images/gallery/henry-at-dovestones.jpg', alt: 'Henry at Dovestones' },
+  { src: '/images/gallery/bright-futures-14.jpg', alt: 'Outdoor space' },
+  { src: '/images/gallery/pupils-group.jpg', alt: 'Pupils' },
+  { src: '/images/gallery/bfs-staff-team.jpg', alt: 'Staff team' },
+  { src: '/images/gallery/matthew-and-harry.jpg', alt: 'Pupils at screen' },
+  { src: '/images/gallery/bright-futures-03.jpg', alt: 'Classroom' },
+  { src: '/images/gallery/bright-futures-13.jpg', alt: 'School building' },
+  { src: '/images/gallery/bright-futures-12.jpg', alt: 'Corridor' },
+  { src: '/images/gallery/bright-futures-11.jpg', alt: 'Learning space' },
+  { src: '/images/gallery/bright-futures-10.jpg', alt: 'Reception area' },
+  { src: '/images/gallery/flynn.jpg', alt: 'Flynn' },
+  { src: '/images/gallery/bright-futures-09.jpg', alt: 'Sensory room' },
+  { src: '/images/gallery/sahil-and-henry-in-the-wind.jpg', alt: 'Sahil and Henry outdoors' },
+  { src: '/images/gallery/bright-futures-07.jpg', alt: 'Activity space' },
+  { src: '/images/gallery/bright-futures-06.jpg', alt: 'Pupil space' },
+  { src: '/images/gallery/bright-futures-05.jpg', alt: 'Classroom' },
+  { src: '/images/gallery/saoirse-makes-gingerbread.jpg', alt: 'Saoirse making gingerbread' },
+  { src: '/images/gallery/sahil-by-posts-at-dovestones.jpg', alt: 'Sahil at Dovestones' },
+  { src: '/images/gallery/sahil-and-henry-in-woods.jpg', alt: 'Sahil and Henry in woods' },
+  { src: '/images/gallery/matthew-going-to-college.jpg', alt: 'Matthew going to college' },
+  { src: '/images/gallery/pupils-on-sensory-equipment.jpg', alt: 'Pupils on sensory equipment' },
+  { src: '/images/gallery/swim-session.jpg', alt: 'Swimming session' },
+  { src: '/images/gallery/lucy-and-breeze.jpg', alt: 'Lucy and Breeze' },
+];
+---
+<PageLayout title="Gallery" showContact={false}>
+  <p class="text-gray-600 mb-8">A selection of photos of life at Bright Futures School — our facilities, pupils, and activities.</p>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+    {photos.map(p => (
+      <a href={p.src} target="_blank" rel="noopener" class="group overflow-hidden rounded-lg">
+        <img
+          src={p.src}
+          alt={p.alt}
+          class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
+          loading="lazy"
+        />
+      </a>
+    ))}
+  </div>
+</PageLayout>
