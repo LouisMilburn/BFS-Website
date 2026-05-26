@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://bfswebsite.louismilburn.workers.dev/</loc><priority>1.0</priority></url>
+  <url><loc>https://bfswebsite.louismilburn.workers.dev/about/</loc><priority>0.9</priority></url>
+  <url><loc>https://bfswebsite.louismilburn.workers.dev/about/history/</loc><priority>0.7</priority></url>
+  <url><loc>https://bfswebsite.louismilburn.workers.dev/about/overview/</loc><priority>0.8</priority></url>
+  <url><loc>https://bfswebsite.louismilburn.workers.dev/admissions/</loc><priority>0.9</priority></url>
+  <url><loc>https://bfswebsite.louismilburn.workers.dev/admissions/faq/</loc><priority>0.8</priority></url>
+  <url><loc>https://bfswebsite.louismilburn.workers.dev/gallery/</loc><priority>0.6</priority></url>
+  <url><loc>https://bfswebsite.louismilburn.workers.dev/opportunities/</loc><priority>0.5</priority></url>
+  <url><loc>https://bfswebsite.louismilburn.workers.dev/parents/policies/</loc><priority>0.6</priority></url>
+  <url><loc>https://bfswebsite.louismilburn.workers.dev/parents/holidays/</loc><priority>0.6</priority></url>
+  <url><loc>https://bfswebsite.louismilburn.workers.dev/parents/resources/</loc><priority>0.7</priority></url>
+  <url><loc>https://bfswebsite.louismilburn.workers.dev/parents/help-and-support/</loc><priority>0.5</priority></url>
+  <url><loc>https://bfswebsite.louismilburn.workers.dev/friends/</loc><priority>0.6</priority></url>
+  <url><loc>https://bfswebsite.louismilburn.workers.dev/ofsted/</loc><priority>0.7</priority></url>
+  <url><loc>https://bfswebsite.louismilburn.workers.dev/safeguarding/</loc><priority>0.6</priority></url>
+  <url><loc>https://bfswebsite.louismilburn.workers.dev/contact/</loc><priority>0.8</priority></url>
+</urlset>

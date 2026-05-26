@@ -1,0 +1,38 @@
+---
+const testimonials = [
+  {
+    quote: "I was excluded a lot at my other school. I've never been excluded at Bright Futures and for the first time, I feel happy at school.",
+    attribution: "Bright Futures pupil",
+  },
+  {
+    quote: "PLACEHOLDER — replace with a real parent quote. Run /edit-text and describe this section to update it.",
+    attribution: "Parent of a Bright Futures pupil",
+    placeholder: true,
+  },
+  {
+    quote: "PLACEHOLDER — replace with a real parent or LA quote. Run /edit-text and describe this section to update it.",
+    attribution: "Local Authority SEND Team",
+    placeholder: true,
+  },
+];
+---
+<section class="bg-brand-navy py-14">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-2xl font-bold text-white text-center mb-10">What People Say</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      {testimonials.map(t => (
+        <figure class="bg-white/10 rounded-xl p-6 flex flex-col">
+          <svg class="w-8 h-8 text-brand-cyan mb-3 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+          </svg>
+          <blockquote class="text-gray-200 text-sm leading-relaxed flex-1 italic">
+            {t.quote}
+          </blockquote>
+          <figcaption class="mt-4 text-brand-cyan text-xs font-semibold">
+            — {t.attribution}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

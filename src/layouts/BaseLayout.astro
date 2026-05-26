@@ -6,8 +6,15 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
-const { title, description = 'Bright Futures School is a small, nurturing, special independent school for children with autism in Greenfield, Oldham.' } = Astro.props;
+const {
+  title,
+  description = 'Bright Futures School is a small, nurturing, special independent school for children with autism in Greenfield, Oldham.',
+  ogImage = '/images/BFSlogo.jpg',
+} = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL   = new URL(ogImage, Astro.site);
 ---
 <!doctype html>
 <html lang="en">
@@ -15,8 +22,24 @@ const { title, description = 'Bright Futures School is a small, nurturing, speci
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
     <title>{title} | Bright Futures School</title>
     <link rel="icon" type="image/jpeg" href="/images/BFSlogo.jpg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content={canonicalURL} />
+    <meta property="og:title"       content={`${title} | Bright Futures School`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image"       content={ogImageURL} />
+    <meta property="og:site_name"   content="Bright Futures School" />
+    <meta property="og:locale"      content="en_GB" />
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card"        content="summary" />
+    <meta name="twitter:title"       content={`${title} | Bright Futures School`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image"       content={ogImageURL} />
   </head>
   <body class="flex flex-col min-h-screen">
     <Header />
